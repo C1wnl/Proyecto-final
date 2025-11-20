@@ -1,0 +1,29 @@
+# NetBeans project files
+nbproject/private/
+build/
+nbbuild/
+dist/
+*.bak
+*.log
+
+# Java compiled files
+*.class
+*.jar
+*.war
+*.ear
+
+# JSP/Servlet temp files
+*.jsp~
+*.tmp
+
+# Uploaded images (optional: keep if you want to exclude them)
+resources/img/
+
+# IDE settings
+*.iml
+.idea/
+.vscode/
+
+# OS-specific files
+.DS_Store
+Thumbs.db
