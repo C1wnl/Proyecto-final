@@ -19,19 +19,13 @@ public class AdminServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        HttpSession sesion = request.getSession(false);
-        if (sesion == null || sesion.getAttribute("admin") == null) {
-            response.sendRedirect(request.getContextPath() + "/admin/login.jsp");
-            return;
-        }
-
         String accion = request.getParameter("accion");
         NoticiaDAO dao = new NoticiaDAO();
 
         if ("eliminar".equals(accion)) {
             int id = Integer.parseInt(request.getParameter("id"));
             dao.eliminar(id);
-            sesion.setAttribute("mensaje", "Noticia eliminada correctamente");
+            request.getSession().setAttribute("mensaje", "Noticia eliminada correctamente");
             response.sendRedirect(request.getContextPath() + "/AdminServlet?accion=panel");
             return;
         }
@@ -49,10 +43,6 @@ public class AdminServlet extends HttpServlet {
             throws ServletException, IOException {
 
         HttpSession sesion = request.getSession(false);
-        if (sesion == null || sesion.getAttribute("admin") == null) {
-            response.sendRedirect(request.getContextPath() + "/admin/login.jsp");
-            return;
-        }
 
         if (!ServletFileUpload.isMultipartContent(request)) {
             String accion = request.getParameter("accion");
@@ -90,9 +80,7 @@ public class AdminServlet extends HttpServlet {
                     String nombreArchivo = new File(item.getName()).getName();
                     if (nombreArchivo != null && !nombreArchivo.trim().isEmpty()) {
                         File carpeta = new File(getServletContext().getRealPath("/resources/img/"));
-                        if (!carpeta.exists()) {
-                            carpeta.mkdirs();
-                        }
+                        if (!carpeta.exists()) carpeta.mkdirs();
 
                         File destino = new File(carpeta, nombreArchivo);
                         if (destino.exists()) {
