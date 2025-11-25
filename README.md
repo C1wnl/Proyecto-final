@@ -1,6 +1,7 @@
 # Noticias Institucionales
 
-Aplicación web desarrollada en Java con JSP y Servlets para gestionar y mostrar noticias institucionales. Incluye un panel de administración para CRUD de noticias y un portal público para visualizarlas.
+Aplicación web desarrollada en Java con JSP y Servlets para gestionar y mostrar noticias institucionales. Incluye un panel de administración para CRUD de noticias y un portal público para visualizarlas.  
+Ahora también incorpora un **módulo de gestión de documentos PDF institucionales**, con control de versiones y vistas públicas/administrativas.
 
 ## Tecnologías utilizadas
 
@@ -11,6 +12,7 @@ Aplicación web desarrollada en Java con JSP y Servlets para gestionar y mostrar
 - HTML5, CSS3
 - NetBeans IDE
 - Git + GitHub
+- Commons FileUpload + Commons IO 
 
 ## Estructura del proyecto
 - NoticiasInstitucionales/ 
@@ -18,21 +20,23 @@ Aplicación web desarrollada en Java con JSP y Servlets para gestionar y mostrar
 │   ├── Noticias/ 
 │   │   ├── listar.jsp 
 │   │   └── detalle.jsp 
-│   ├── WEB-INF/
-│   ├── META-INF/      
+│   ├── Documentos/  
+│   │   ├── VistaDocumentos.jsp  
 │   ├── admin/ 
-│   │   │   ├── login.jsp, crear.jsp, editar.jsp, admin.jsp 
+│   │   ├── login.jsp, crear.jsp, editar.jsp, admin.jsp  
+│   │   ├── documentos.jsp, nuevo.jsp, editar.jsp, versionar.jsp  
 │   ├── includes/ 
-│   │   │   ├── header.jsp, footer.jsp 
+│   │   ├── header.jsp, footer.jsp 
 │   ├── resources/ 
-│   │       ├── css/, img/
+│   │   ├── css/, img/
 │   ├── index.jsp 
 ├── Source Packages/ 
-│   
-├── controlador/ 
-│   │   ├── AdminServlet.java, LoginServlet.java, etc. 
+│   ├── controlador/ 
+│   │   ├── AdminServlet.java, LoginServlet.java, DocumentoServlet.java, AdminAuthFilter.java  
 │   ├── modelo.dao/ 
+│   │   ├── DocumentoDAO.java  
 │   ├── modelo.entidades/ 
+│   │   ├── Documento.java  
 │   └── modelo.util/ 
 ├── Libraries/ 
 │   ├── mysql-connector-j-9.4.0.jar 
@@ -43,41 +47,45 @@ Aplicación web desarrollada en Java con JSP y Servlets para gestionar y mostrar
 │   ├── context.xml 
 │   └── web-fragment.xml
 
-
-
 ## Funcionalidades
 
 - Panel de administración con login
-- Crear, editar, eliminar y listar noticias
+- CRUD de noticias (crear, editar, eliminar, listar)
 - Subida de imágenes con validación
 - Filtro por categoría y fecha
 - Portal público con vista de detalle
 - Mensajes de éxito y error
 - Confirmación al eliminar noticias
 - Diseño modular con includes para header/footer
+- **Módulo de documentos PDF institucionales**:
+  - Subir documentos PDF desde el panel administrativo
+  - Editar metadatos de documentos
+  - Versionar documentos (mantener historial de versiones)
+  - Eliminar documentos
+  - Vista pública de documentos institucionales
+  - Filtro de acceso mediante `AdminAuthFilter`
 
 ## ️ Cómo ejecutar
 
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/tu-usuario/Proyecto-final.git
+
 2. Abre NetBeans y ve a File > Open Project, selecciona la carpeta clonada
 
-## Script SQL para la base de datos
-
 3. Configura la base de datos MySQL:
-- Crea la base de datos:
-    -- Crear base de datos
+    Crea la base de datos:
+
 CREATE DATABASE noticiasdb;
 USE noticiasdb;
 
--- Tabla: categoria
+Tabla: categoria
 CREATE TABLE categoria (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(100) NOT NULL
 );
 
--- Tabla: noticia
+Tabla: noticia
 CREATE TABLE noticia (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   titulo VARCHAR(200) NOT NULL,
@@ -89,24 +97,38 @@ CREATE TABLE noticia (
   FOREIGN KEY (categoria_id) REFERENCES categoria(id)
 );
 
--- Tabla: usuario
+Tabla: usuario
 CREATE TABLE usuario (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   usuario VARCHAR(50),
   clave VARCHAR(50)
 );
 
-4. Ajusta la conexión en Conexion.java:
+Tabla: documento
+CREATE TABLE documento (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(200) NOT NULL,
+  tipo VARCHAR(50) NOT NULL,
+  version INT NOT NULL DEFAULT 1,
+  fecha DATE NOT NULL,
+  ruta VARCHAR(255) NOT NULL
+);
 
-5. Verifica que las siguientes librerías estén agregadas:
-- mysql-connector-j-9.4.0.jar
-- commons-fileupload-1.4.jar
-- commons-io-2.11.0.jar
+4. Ajusta la conexión en Conexion.java
+
+5.Verifica que las siguientes librerías estén agregadas:
+
+mysql-connector-j-9.4.0.jar
+
+commons-fileupload-1.4.jar
+
+commons-io-2.11.0.jar
 
 6. Haz clic derecho en el proyecto y selecciona Clean and Build
+
 7. Ejecuta el proyecto en Apache Tomcat (Run)
 
-## Licencia
+Licencia
 Uso académico y educativo
 
 
