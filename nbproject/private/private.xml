@@ -3,9 +3,39 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/.gitignore</file>
-            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/README.md</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/controlador/AdminAuthFilter.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/controlador/AdminServlet.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/controlador/DocumentoServlet.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/controlador/LoginServlet.java</file>
             <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/modelo/util/Conexion.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/admin/dashboard.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/controlador/LogoutServlet.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/controlador/NoticiaServlet.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/Noticias/listar.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/admin/crear.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/admin/editar.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/modelo/dao/DocumentoDAO.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/admin/documentos/documentos.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/admin/documentos/nuevo.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/admin/documentos/editar.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/admin/admin.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/admin/documentos/versionar.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/admin/login.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/Noticias/detalle.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/Integrantes/listar.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/Integrantes/organigrama.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/Integrantes/crear.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/Integrantes/editar.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/Integrantes/detalle.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/modelo/entidades/Cargo.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/modelo/entidades/Integrante.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/modelo/dao/CargoDAO.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/modelo/dao/IntegranteDAO.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/controlador/IntegranteServlet.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/src/java/modelo/dao/NoticiaDAO.java</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/includes/header.jsp</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/web/resources/css/estilos.css</file>
+            <file>file:/C:/Users/PC%20PRIDE%20FERRET/Documents/NetBeansProjects/NoticiasInstitucionales/README.md</file>
         </group>
     </open-files>
 </project-private>

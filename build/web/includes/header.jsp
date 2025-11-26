@@ -12,6 +12,9 @@
         <a href="<%= request.getContextPath() %>/documentos_publicos/VistaDocumentos.jsp"
            style="color:white; margin-left:20px; text-decoration:none;">Documentos</a>
 
+        <a href="<%= request.getContextPath() %>/IntegranteServlet?accion=organigrama"
+           style="color:white; margin-left:20px; text-decoration:none;">Integrantes</a>
+
         <a href="<%= request.getContextPath() %>/admin/login.jsp"
            style="color:white; margin-left:20px; text-decoration:none;">Acceso</a>
 
@@ -23,3 +26,4 @@
         <% } %>
     </nav>
 </header>
+

@@ -1,7 +1,8 @@
 # Noticias Institucionales
 
 Aplicación web desarrollada en Java con JSP y Servlets para gestionar y mostrar noticias institucionales. Incluye un panel de administración para CRUD de noticias y un portal público para visualizarlas.  
-Ahora también incorpora un **módulo de gestión de documentos PDF institucionales**, con control de versiones y vistas públicas/administrativas.
+Ahora también incorpora un **módulo de gestión de documentos PDF institucionales**, con control de versiones y vistas públicas/administrativas.  
+Además, se añadió un **módulo de organigrama institucional y directorio de integrantes**, para visualizar la estructura jerárquica y consultar el listado de personas.
 
 ## Tecnologías utilizadas
 
@@ -22,6 +23,9 @@ Ahora también incorpora un **módulo de gestión de documentos PDF instituciona
 │   │   └── detalle.jsp 
 │   ├── Documentos/  
 │   │   ├── VistaDocumentos.jsp  
+│   ├── Integrantes/  
+│   │   ├── listar.jsp  
+│   │   └── organigrama.jsp  
 │   ├── admin/ 
 │   │   ├── login.jsp, crear.jsp, editar.jsp, admin.jsp  
 │   │   ├── documentos.jsp, nuevo.jsp, editar.jsp, versionar.jsp  
@@ -33,10 +37,13 @@ Ahora también incorpora un **módulo de gestión de documentos PDF instituciona
 ├── Source Packages/ 
 │   ├── controlador/ 
 │   │   ├── AdminServlet.java, LoginServlet.java, DocumentoServlet.java, AdminAuthFilter.java  
+│   │   ├── IntegranteServlet.java  
 │   ├── modelo.dao/ 
 │   │   ├── DocumentoDAO.java  
+│   │   ├── IntegranteDAO.java, CargoDAO.java  
 │   ├── modelo.entidades/ 
 │   │   ├── Documento.java  
+│   │   ├── Integrante.java, Cargo.java  
 │   └── modelo.util/ 
 ├── Libraries/ 
 │   ├── mysql-connector-j-9.4.0.jar 
@@ -64,12 +71,18 @@ Ahora también incorpora un **módulo de gestión de documentos PDF instituciona
   - Eliminar documentos
   - Vista pública de documentos institucionales
   - Filtro de acceso mediante `AdminAuthFilter`
+- **Módulo de organigrama institucional y directorio**:
+  - Visualización del organigrama institucional en HTML+CSS
+  - Jerarquía estática de cargos y nombres
+  - Directorio dinámico de integrantes con listado
+  - Navegación entre organigrama y directorio
 
 ## ️ Cómo ejecutar
 
 1. Clona el repositorio:
    ```bash
    git clone https://github.com/tu-usuario/Proyecto-final.git
+
 
 2. Abre NetBeans y ve a File > Open Project, selecciona la carpeta clonada
 
@@ -79,13 +92,11 @@ Ahora también incorpora un **módulo de gestión de documentos PDF instituciona
 CREATE DATABASE noticiasdb;
 USE noticiasdb;
 
-Tabla: categoria
 CREATE TABLE categoria (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(100) NOT NULL
 );
 
-Tabla: noticia
 CREATE TABLE noticia (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   titulo VARCHAR(200) NOT NULL,
@@ -97,14 +108,12 @@ CREATE TABLE noticia (
   FOREIGN KEY (categoria_id) REFERENCES categoria(id)
 );
 
-Tabla: usuario
 CREATE TABLE usuario (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   usuario VARCHAR(50),
   clave VARCHAR(50)
 );
 
-Tabla: documento
 CREATE TABLE documento (
   id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
   nombre VARCHAR(200) NOT NULL,
@@ -112,6 +121,14 @@ CREATE TABLE documento (
   version INT NOT NULL DEFAULT 1,
   fecha DATE NOT NULL,
   ruta VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE integrante (
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  nombre VARCHAR(200) NOT NULL,
+  cargo VARCHAR(100) NOT NULL,
+  correo VARCHAR(100),
+  telefono VARCHAR(50)
 );
 
 4. Ajusta la conexión en Conexion.java
