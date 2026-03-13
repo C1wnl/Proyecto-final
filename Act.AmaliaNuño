@@ -1,0 +1,109 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyN1ISdT+3kG4RW+qylhQqHe",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/C1wnl/Proyecto-final/blob/master/Act.AmaliaNu%C3%B1o\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 2,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "J9M-Cd3ybEeL",
+        "outputId": "6c0589f8-d4b4-4469-d90b-b44636d17473"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "Resultado BFS: ['S', 'A', 'C', 'G']\n",
+            "Resultado DFS: ['S', 'A', 'B', 'F', 'G']\n"
+          ]
+        }
+      ],
+      "source": [
+        "from collections import deque\n",
+        "\n",
+        "# Grafo del ejercicio\n",
+        "grafo = {\n",
+        "    'S': ['A', 'D'],\n",
+        "    'A': ['B', 'C'],\n",
+        "    'D': ['E'],\n",
+        "    'B': ['F'],\n",
+        "    'C': ['G'],\n",
+        "    'E': ['G'],\n",
+        "    'F': ['G'],\n",
+        "    'G': []\n",
+        "}\n",
+        "\n",
+        "# Búsqueda en amplitud\n",
+        "def bfs(grafo, inicio, meta):\n",
+        "\n",
+        "    cola = deque([[inicio]])\n",
+        "    visitados = []\n",
+        "\n",
+        "    while cola:\n",
+        "        camino = cola.popleft()\n",
+        "        nodo = camino[-1]\n",
+        "\n",
+        "        if nodo == meta:\n",
+        "            return camino\n",
+        "\n",
+        "        if nodo not in visitados:\n",
+        "            visitados.append(nodo)\n",
+        "\n",
+        "            for vecino in grafo[nodo]:\n",
+        "                nuevo_camino = list(camino)\n",
+        "                nuevo_camino.append(vecino)\n",
+        "                cola.append(nuevo_camino)\n",
+        "\n",
+        "\n",
+        "# Búsqueda en profundidad\n",
+        "def dfs(grafo, nodo, meta, visitados=None):\n",
+        "\n",
+        "    if visitados is None:\n",
+        "        visitados = []\n",
+        "\n",
+        "    visitados.append(nodo)\n",
+        "\n",
+        "    if nodo == meta:\n",
+        "        return visitados\n",
+        "\n",
+        "    for vecino in grafo[nodo]:\n",
+        "        if vecino not in visitados:\n",
+        "            resultado = dfs(grafo, vecino, meta, visitados)\n",
+        "            if resultado:\n",
+        "                return resultado\n",
+        "\n",
+        "\n",
+        "print(\"Resultado BFS:\", bfs(grafo,'S','G'))\n",
+        "print(\"Resultado DFS:\", dfs(grafo,'S','G'))"
+      ]
+    }
+  ]
+}
